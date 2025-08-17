@@ -1,340 +1,176 @@
 import React from 'react';
 import { colors } from '../types/colors';
-import { MapPin, Users, MessageSquare, Navigation, Star, ArrowRight, Play, Download } from 'lucide-react';
+import { MessageSquare, MapPin, Users, Clock, ArrowRight } from 'lucide-react';
 
-const Home: React.FC = () => {
-  const features = [
+const Messages: React.FC = () => {
+  const stories = [
     {
-      icon: <MapPin size={32} color={colors.primary} />,
-      title: 'Location Boundary Messaging',
-      description: 'Send messages to specific location boundaries and connect with people in targeted areas.'
+      title: "Lost Tourist Finds Local Help",
+      subtitle: "How location-based messaging saved the day",
+      story: "Sarah was visiting Tokyo and got completely lost in the subway system. Using Spotping, she sent a message to the Shibuya Station area asking for help. Within minutes, a local resident named Yuki responded with detailed directions and even offered to meet her at the station. This simple interaction turned into a friendship that lasted beyond Sarah's trip.",
+      image: "https://images.pexels.com/photos/1308624/pexels-photo-1308624.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      impact: "Connected 2 strangers across cultures",
+      category: "Travel"
     },
     {
-      icon: <Users size={32} color={colors.primary} />,
-      title: 'Find Nearby Buddies',
-      description: 'Discover and connect with people around you based on your current location and interests.'
+      title: "Emergency Pet Rescue",
+      subtitle: "Community comes together in crisis",
+      story: "When Max's dog Luna escaped during a thunderstorm in Central Park, he was panicking. He used Spotping to send an urgent message to everyone in the park area. Dog lovers and joggers immediately started looking. Within 30 minutes, a family found Luna hiding under a bridge and contacted Max through the app. The community's quick response reunited them safely.",
+      image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      impact: "Mobilized 50+ locals in 30 minutes",
+      category: "Emergency"
     },
     {
-      icon: <MessageSquare size={32} color={colors.primary} />,
-      title: 'One-on-One Chat',
-      description: 'Have private conversations with your buddies and build meaningful connections locally.'
+      title: "Food Truck Discovery",
+      subtitle: "Finding hidden culinary gems",
+      story: "Emma was working late downtown and craving something different from the usual fast food. She sent a message to her office building area asking about good food options. A colleague in the next building told her about an amazing Korean BBQ food truck that only comes on Wednesdays. Now it's become their weekly tradition to meet for lunch.",
+      image: "https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      impact: "Created weekly tradition for colleagues",
+      category: "Food"
     },
     {
-      icon: <Navigation size={32} color={colors.primary} />,
-      title: 'Location Feed',
-      description: 'Consume content and updates from locations you have visited or are currently at.'
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      role: 'Local Explorer',
-      content: 'Spotping changed how I explore my city. I can now connect with people at cafes, events, and parks instantly.',
-      rating: 5
+      title: "Study Group Formation",
+      subtitle: "Academic collaboration made easy",
+      story: "During exam season, Jake sent a message to the university library area looking for study partners for his economics exam. Three other students responded, and they formed a study group that met regularly. Not only did they all improve their grades, but they also became close friends who still meet up years after graduation.",
+      image: "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      impact: "Formed lasting friendships & improved grades",
+      category: "Education"
     },
     {
-      name: 'Mike Chen',
-      role: 'Digital Nomad',
-      content: 'Perfect for meeting locals and finding hidden gems wherever I travel. The location-based messaging is brilliant.',
-      rating: 5
+      title: "Concert Buddy Connection",
+      subtitle: "Shared experiences create bonds",
+      story: "Lisa had tickets to see her favorite band but her friend cancelled last minute. She sent a message to the concert venue area looking for someone to attend with. She connected with Maria, who was in the same situation. They had an amazing time together and discovered they lived just a few blocks apart. They now attend concerts together regularly.",
+      image: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      impact: "Turned solo experience into lasting friendship",
+      category: "Entertainment"
     },
     {
-      name: 'Emily Rodriguez',
-      role: 'Community Builder',
-      content: 'As an event organizer, Spotping helps me create local communities and keep attendees engaged at venues.',
-      rating: 5
+      title: "Neighborhood Watch Success",
+      subtitle: "Community safety through connection",
+      story: "When several break-ins occurred in Oak Street neighborhood, resident Tom used Spotping to organize the community. He sent messages to the entire street area, and neighbors started sharing information and coordinating watch schedules. The increased communication and vigilance led to a significant decrease in crime and a much stronger neighborhood bond.",
+      image: "https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      impact: "Reduced local crime by 60%",
+      category: "Safety"
     }
   ];
 
   return (
     <div style={{ backgroundColor: colors.dark }} className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Video Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center z-0"
-          style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/1482476/pexels-photo-1482476.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)'
-          }}
-        ></div>
-        
-        <div className="relative z-20 text-center px-8 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Connect Locally with
-            <span style={{ color: colors.primary }} className="block mt-2">
-              Spotping's Messaging App
-              className="group p-8 rounded-2xl text-center hover:scale-105 hover:-translate-y-2 transition-all duration-500 border border-gray-700 hover:border-lime-400 hover:shadow-2xl hover:shadow-lime-400/20 cursor-pointer"
-          </h1>
-              {/* Feature Image */}
-              <div className="mb-6 relative overflow-hidden rounded-xl">
-                <img 
-                  src={
-                    index === 0 ? 'https://images.pexels.com/photos/1851415/pexels-photo-1851415.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop' :
-                    index === 1 ? 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop' :
-                    index === 2 ? 'https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop' :
-                    'https://images.pexels.com/photos/1482476/pexels-photo-1482476.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop'
-                  }
-                  alt={feature.title}
-                  className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-10 transition-all duration-300"></div>
-              </div>
-              
-          
-                <div className="group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  {feature.icon}
-                </div>
-            Send messages and meet people at specific locations. Experience effortless local connections with Spotping.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="group flex items-center space-x-3 px-8 py-4 border-2 border-white bg-transparent text-white rounded-full text-lg font-medium hover:bg-white hover:text-black transition-all duration-300 hover:scale-105">
-              <Play size={20} />
-              <span>Explore</span>
-            </button>
-            
-            <button 
-              style={{ backgroundColor: colors.primary }}
-              className="group flex items-center space-x-3 px-8 py-4 text-black rounded-full text-lg font-bold hover:opacity-90 transition-all duration-300 hover:scale-105"
-            >
-              <Download size={20} />
-              <span>Join</span>
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Problem & Solution Section */}
-      <section className="py-24 px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-lime-400 transition-colors duration-300">
-                Connecting People Through Location-Based Messaging
-              </h2>
-              
-              <p style={{ color: colors.gray }} className="text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
-                Spotping is your go-to location-based messaging app, enabling users to send messages and connect with people at specific places, enhancing social interactions wherever you go.
-              </p>
-              
-              <button className="group flex items-center space-x-3 px-8 py-4 border border-gray-600 bg-transparent text-white rounded-full text-lg font-medium hover:border-white transition-all duration-300 hover:scale-105">
-                <span>Explore</span>
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-            
-            <div className="relative">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div 
-                  style={{ backgroundColor: colors.primary }}
-                  className="p-8 rounded-2xl text-center text-black"
-                >
-                  <div className="text-4xl font-bold mb-2">150+</div>
-                  <div className="text-lg font-medium">Stay Connected</div>
-                </div>
-                
-                <div 
-                  style={{ backgroundColor: colors.darkgray }}
-                  className="p-8 rounded-2xl text-center"
-                >
-                  <div style={{ color: colors.primary }} className="text-4xl font-bold mb-2">15</div>
-                  <div className="text-white text-lg font-medium">Join Our Community</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-24 px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Powerful Features for Local Connection
-            </h2>
-            <p style={{ color: colors.gray }} className="text-xl max-w-3xl mx-auto">
-              Discover how Spotping transforms the way you connect with people and places around you.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                style={{ backgroundColor: colors.darkgray }}
-                className="p-8 rounded-2xl text-center hover:scale-105 transition-transform duration-300 border border-gray-700 hover:border-gray-500"
-              >
-                <div className="mb-6 flex justify-center">
-                  {feature.icon}
-                </div>
-                
-                <h3 className="text-xl font-bold text-white mb-4">
-                  {feature.title}
-                </h3>
-                
-                <p style={{ color: colors.gray }} className="text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Location Demo Section */}
-      <section className="py-24 px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Experience Location-Based Messaging
-            </h2>
-            <p style={{ color: colors.gray }} className="text-xl max-w-3xl mx-auto">
-              See how easy it is to send messages to specific locations and adjust boundaries for targeted communication.
-            </p>
-          </div>
-          
-          <div 
-            style={{ backgroundColor: colors.darkgray }}
-            className="rounded-3xl p-12 text-center border border-gray-700"
-          >
-            <div className="mb-8">
-              <div 
-                className="w-80 h-48 mx-auto rounded-2xl bg-cover bg-center relative overflow-hidden"
-                style={{
-                  backgroundImage: 'url(https://images.pexels.com/photos/1851415/pexels-photo-1851415.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop)'
-                }}
-              >
-                <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                  <div 
-                    style={{ backgroundColor: colors.primary }}
-                    className="w-4 h-4 rounded-full"
-                  ></div>
-                </div>
-              </div>
-            </div>
-            
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Select Location & Send Messages
-            </h3>
-            
-            <p style={{ color: colors.gray }} className="text-lg mb-8 max-w-2xl mx-auto">
-              Choose any location on the map, adjust the message boundary, and connect with people in that specific area instantly.
-            </p>
-            
-            <button 
-              style={{ backgroundColor: colors.primary }}
-              className="px-8 py-4 text-black rounded-full text-lg font-bold hover:opacity-90 transition-opacity"
-            >
-              Try Location Demo
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-24 px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              What Our Users Say
-            </h2>
-            <p style={{ color: colors.gray }} className="text-xl max-w-3xl mx-auto">
-              Join thousands of users who are already connecting locally with Spotping.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index}
-                style={{ backgroundColor: colors.darkgray }}
-                className="group p-8 rounded-2xl border border-gray-700 hover:border-lime-400 transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-lime-400/20 cursor-pointer"
-              >
-                {/* User Avatar */}
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="relative">
-                    <img 
-                      src={
-                        index === 0 ? 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop' :
-                        index === 1 ? 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop' :
-                        'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
-                      }
-                      alt={testimonial.name}
-                      className="w-16 h-16 rounded-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div 
-                      className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-2 border-gray-800"
-                      style={{ backgroundColor: colors.primary }}
-                    ></div>
-                  </div>
-                  <div>
-                    <div className="text-white font-bold group-hover:text-lime-400 transition-colors duration-300">{testimonial.name}</div>
-                    <div style={{ color: colors.gray }} className="text-sm">{testimonial.role}</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-1 mb-6">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      size={20} 
-                      fill={colors.primary} 
-                      color={colors.primary}
-                      className="group-hover:scale-110 transition-transform duration-300"
-                      style={{ animationDelay: `${i * 100}ms` }}
-                    />
-                  ))}
-                </div>
-                
-                <p style={{ color: colors.lightgray }} className="text-lg mb-6 leading-relaxed group-hover:text-white transition-colors duration-300">
-                  "{testimonial.content}"
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
       <section className="py-24 px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Connect Locally?
-          </h2>
+          <div className="mb-8">
+            <MessageSquare size={64} color={colors.primary} className="mx-auto mb-6" />
+          </div>
           
-          <p style={{ color: colors.gray }} className="text-xl mb-12">
-            Download Spotping today and start building meaningful connections in your community.
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Stories of Connection
+          </h1>
+          
+          <p style={{ color: colors.gray }} className="text-xl md:text-2xl mb-8 leading-relaxed">
+            Real stories from real people who solved problems and built connections through Spotping's location-based messaging.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button 
-          className="rounded-3xl p-12 text-center border border-gray-700 hover:border-lime-400 transition-all duration-500 hover:shadow-2xl hover:shadow-lime-400/10"
-              className="group flex items-center space-x-3 px-8 py-4 text-black rounded-full text-lg font-bold hover:opacity-90 transition-all duration-300 hover:scale-105"
-              className="w-80 h-48 mx-auto rounded-2xl bg-cover bg-center relative overflow-hidden hover:scale-105 transition-transform duration-500 cursor-pointer"
-              <Download size={20} />
-              <span>Download for iOS</span>
-            </button>
-            
-            <button 
-              style={{ backgroundColor: colors.primary }}
-              className="group flex items-center space-x-3 px-8 py-4 text-black rounded-full text-lg font-bold hover:opacity-90 transition-all duration-300 hover:scale-105"
-                  className="w-4 h-4 rounded-full animate-pulse"
-              <Download size={20} />
-                <div 
-                  className="absolute w-8 h-8 rounded-full border-2 animate-ping"
-                  style={{ borderColor: colors.primary }}
-                ></div>
-              <span>Download for Android</span>
-            </button>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            {['All', 'Travel', 'Emergency', 'Food', 'Education', 'Entertainment', 'Safety'].map((category) => (
+              <button
+                key={category}
+                style={{ backgroundColor: category === 'All' ? colors.primary : colors.darkgray }}
+                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  category === 'All' ? 'text-black' : 'text-white hover:bg-gray-600'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* Stories Grid */}
+      <section className="pb-24 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {stories.map((story, index) => (
+              <div 
+                key={index}
+                style={{ backgroundColor: colors.darkgray }}
+                className="group rounded-3xl overflow-hidden border border-gray-700 hover:border-lime-400 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-2xl hover:shadow-lime-400/20 cursor-pointer"
+              >
+                <div className="relative">
+                  <img 
+                    src={story.image} 
+                    alt={story.title}
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
+                  <div className="absolute top-4 left-4">
+                    <span 
+                      style={{ backgroundColor: colors.primary }}
+                      className="px-3 py-1 rounded-full text-black text-sm font-medium"
+                    >
+                      {story.category}
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    {story.title}
+                  </h3>
+                  
+                  <p style={{ color: colors.primary }} className="text-lg font-medium mb-4">
+                    {story.subtitle}
+                  </p>
+                  
+                  <p style={{ color: colors.lightgray }} className="text-base leading-relaxed mb-6">
+                    {story.story}
+                  </p>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <Users size={16} color={colors.primary} />
+                      <span style={{ color: colors.gray }} className="text-sm">
+                        {story.impact}
+                      </span>
+                    </div>
+                    
+                    <button className="group flex items-center space-x-2 text-white hover:opacity-80 transition-opacity">
+                      <span className="text-sm font-medium">Read More</span>
+                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-24 px-8">
+        <div 
+          style={{ backgroundColor: colors.darkgray }}
+          className="max-w-4xl mx-auto rounded-3xl p-12 text-center border border-gray-700"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Have Your Own Story?
+          </h2>
+          
+          <p style={{ color: colors.gray }} className="text-lg mb-8">
+            Join thousands of users who are creating meaningful connections through location-based messaging.
+          </p>
+          
+          <button 
+            style={{ backgroundColor: colors.primary }}
+            className="px-8 py-4 text-black rounded-full text-lg font-bold hover:opacity-90 transition-opacity"
+          >
+            Start Your Story Today
+          </button>
         </div>
       </section>
     </div>
   );
 };
 
-export default Home;
+export default Messages;
