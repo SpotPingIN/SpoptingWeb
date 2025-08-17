@@ -65,10 +65,27 @@ const Home: React.FC = () => {
             Connect Locally with
             <span style={{ color: colors.primary }} className="block mt-2">
               Spotping's Messaging App
-            </span>
+              className="group p-8 rounded-2xl text-center hover:scale-105 hover:-translate-y-2 transition-all duration-500 border border-gray-700 hover:border-lime-400 hover:shadow-2xl hover:shadow-lime-400/20 cursor-pointer"
           </h1>
+              {/* Feature Image */}
+              <div className="mb-6 relative overflow-hidden rounded-xl">
+                <img 
+                  src={
+                    index === 0 ? 'https://images.pexels.com/photos/1851415/pexels-photo-1851415.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop' :
+                    index === 1 ? 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop' :
+                    index === 2 ? 'https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop' :
+                    'https://images.pexels.com/photos/1482476/pexels-photo-1482476.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop'
+                  }
+                  alt={feature.title}
+                  className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-10 transition-all duration-300"></div>
+              </div>
+              
           
-          <p style={{ color: colors.lightgray }} className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                <div className="group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  {feature.icon}
+                </div>
             Send messages and meet people at specific locations. Experience effortless local connections with Spotping.
           </p>
           
@@ -95,11 +112,11 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-lime-400 transition-colors duration-300">
                 Connecting People Through Location-Based Messaging
               </h2>
               
-              <p style={{ color: colors.gray }} className="text-xl leading-relaxed">
+              <p style={{ color: colors.gray }} className="text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
                 Spotping is your go-to location-based messaging app, enabling users to send messages and connect with people at specific places, enhancing social interactions wherever you go.
               </p>
               
@@ -235,22 +252,47 @@ const Home: React.FC = () => {
               <div 
                 key={index}
                 style={{ backgroundColor: colors.darkgray }}
-                className="p-8 rounded-2xl border border-gray-700 hover:border-gray-500 transition-all duration-300"
+                className="group p-8 rounded-2xl border border-gray-700 hover:border-lime-400 transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-lime-400/20 cursor-pointer"
               >
+                {/* User Avatar */}
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="relative">
+                    <img 
+                      src={
+                        index === 0 ? 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop' :
+                        index === 1 ? 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop' :
+                        'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
+                      }
+                      alt={testimonial.name}
+                      className="w-16 h-16 rounded-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div 
+                      className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-2 border-gray-800"
+                      style={{ backgroundColor: colors.primary }}
+                    ></div>
+                  </div>
+                  <div>
+                    <div className="text-white font-bold group-hover:text-lime-400 transition-colors duration-300">{testimonial.name}</div>
+                    <div style={{ color: colors.gray }} className="text-sm">{testimonial.role}</div>
+                  </div>
+                </div>
+                
                 <div className="flex items-center space-x-1 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} size={20} fill={colors.primary} color={colors.primary} />
+                    <Star 
+                      key={i} 
+                      size={20} 
+                      fill={colors.primary} 
+                      color={colors.primary}
+                      className="group-hover:scale-110 transition-transform duration-300"
+                      style={{ animationDelay: `${i * 100}ms` }}
+                    />
                   ))}
                 </div>
                 
-                <p style={{ color: colors.lightgray }} className="text-lg mb-6 leading-relaxed">
+                <p style={{ color: colors.lightgray }} className="text-lg mb-6 leading-relaxed group-hover:text-white transition-colors duration-300">
                   "{testimonial.content}"
                 </p>
-                
-                <div>
-                  <div className="text-white font-bold">{testimonial.name}</div>
-                  <div style={{ color: colors.gray }} className="text-sm">{testimonial.role}</div>
-                </div>
               </div>
             ))}
           </div>
@@ -270,9 +312,9 @@ const Home: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <button 
-              style={{ backgroundColor: colors.primary }}
+          className="rounded-3xl p-12 text-center border border-gray-700 hover:border-lime-400 transition-all duration-500 hover:shadow-2xl hover:shadow-lime-400/10"
               className="group flex items-center space-x-3 px-8 py-4 text-black rounded-full text-lg font-bold hover:opacity-90 transition-all duration-300 hover:scale-105"
-            >
+              className="w-80 h-48 mx-auto rounded-2xl bg-cover bg-center relative overflow-hidden hover:scale-105 transition-transform duration-500 cursor-pointer"
               <Download size={20} />
               <span>Download for iOS</span>
             </button>
@@ -280,8 +322,12 @@ const Home: React.FC = () => {
             <button 
               style={{ backgroundColor: colors.primary }}
               className="group flex items-center space-x-3 px-8 py-4 text-black rounded-full text-lg font-bold hover:opacity-90 transition-all duration-300 hover:scale-105"
-            >
+                  className="w-4 h-4 rounded-full animate-pulse"
               <Download size={20} />
+                <div 
+                  className="absolute w-8 h-8 rounded-full border-2 animate-ping"
+                  style={{ borderColor: colors.primary }}
+                ></div>
               <span>Download for Android</span>
             </button>
           </div>
